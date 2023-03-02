@@ -9,9 +9,6 @@ class Student:
         if credits>0:
             self.__nombredecrédit += credits
             print("Le nombre de credits de John Doe est de",credits)
-
-    def ___Studenteval(self):
         
-
 eleve = Student("John","Doe",145)
 eleve.add_credits(60)
