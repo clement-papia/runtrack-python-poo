@@ -1,27 +1,29 @@
 class CompteBancaire:
-    def __init__(self,numérocompte, nom, prénom,solde):
-        self.__numérocompte = numérocompte
-        self.__nom = nom
-        self.__prénom = prénom
+    def __init__(self, numérocompte, nomPrenom, solde):
+        self.__numérodecompte = numérocompte
+        self.__nomprenom= nomPrenom
         self.__solde = solde
+        
+    def versement(self, argent):
+        self.__solde = self.__solde + argent
+    
+    def retrait(self, argent):
+        if(self.__solde < argent):
+            print("solde insuffisante")
+        else:
+            self.__solde = self.__solde - argent
+    
+    def agios(self):
+        self.__solde =self.__solde*95/100
     
     def afficher(self):
-        print("Voici les informations de votre compte",self.__numérocompte)
-    
-    def afficherSolde(self):
-        print("Voici vos soldes",self.__solde)
-    
-    def versement(self,montant):
-        if self.__solde > montant:
-            self.__solde += montant
-            print("voici votre nouveau montant",self.__solde)
-    
-    def retrait(self,montant):
-        if self.__solde > montant:
-            self.__solde -= montant
-            print("voici votre nouveau montant",self.__solde)
-        else:
-            self.__solde < 0
-            print("Vous ne possèdez pas le montant disponible")
-    
-    
+        print("Compte numéro : " , self.__numérodecompte)
+        print("Nom & Prénom : ", self.__nomprenom)
+        print(" Solde  : ", self.__solde)
+        print("erreur ")
+        
+monCompte = CompteBancaire(16168891, " John Dupont", 22300)
+monCompte.versement(1500)
+monCompte.retrait(24000)
+monCompte.agios()
+monCompte.afficher()
